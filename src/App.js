@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import {TaskList} from "./components/TaskList";
+import TaskList from "./components/TaskList";
 import {addNewTask} from "./store/actions";
 
 import {connect} from 'react-redux';
