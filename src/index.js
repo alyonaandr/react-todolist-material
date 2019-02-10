@@ -10,6 +10,7 @@ import {reducer} from "./store/reducer";
 
 export const ADD_NEW_TASK = "ADD_NEW_TASK";
 export const DONE_TASK = "DONE_TASK";
+export const REMOVE_TASK = "REMOVE_TASK";
 
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
