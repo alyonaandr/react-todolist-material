@@ -1,33 +1,7 @@
-import {ADD_NEW_TASK, DONE_TASK, REMOVE_TASK} from "../index";
+import {combineReducers} from 'redux';
 
-const initState = {
-	tasks: [
-		{name: "Wake up", done:false, remove: false}
-	],
-	user: null
-};
+import modifyTasksReduser from './modifyTasksReduser';
 
-export const reducer = (state=initState,action) => {
-	
-	console.log(action);
-	
-	switch (action.type) {
-		case ADD_NEW_TASK:
-			return {
-				...state, tasks: [...state.tasks, {name: action.payload, done:false, remove: false}]
-			};
-		case DONE_TASK:
-			// state.tasks[action.payload].done = true;
-			return {
-				// ...state, tasks: state.tasks
-				...state, tasks: state.tasks.map((el, i) => action.payload === i?{...el, done:true}:el)
-			};
-		case REMOVE_TASK:
-			// state.tasks[action.payload].done = true;
-			return {
-				// ...state, tasks: state.tasks
-				...state, tasks: state.tasks.map((el, i) => action.payload === i?{...el, remove: true}:el)
-			};
-	}
-	return state;
-};
+export default combineReducers({
+	modifyTasksReduser
+})

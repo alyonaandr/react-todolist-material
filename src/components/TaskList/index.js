@@ -12,6 +12,7 @@ import Typography from "@material-ui/core/es/Typography/Typography";
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import DoneIcon from '@material-ui/icons/Done';
+import modifyTasksReduser from "../../store/modifyTasksReduser";
 
 const styles = theme => ({
 	root: {
@@ -31,7 +32,7 @@ const styles = theme => ({
 
 const TaskList = (props) => {
 	
-	const {tasks, setTaskDone, setTaskRemove, classes} = props;
+	const {modifyTasksReduser:{tasks}, setTaskDone, setTaskRemove, classes} = props;
 	console.log(props);
 	
 	return (
