@@ -1,6 +1,7 @@
 import React from 'react';
+
 import {doneTask, removeTask} from "../../store/actions";
-import connect from "react-redux/es/connect/connect";
+import {connect} from "react-redux";
 
 const TaskList = (props) => {
 	
@@ -23,11 +24,11 @@ const TaskList = (props) => {
 };
 
 const mapStateToProps = state => ({...state});
-const mapActionsToProps = dispatch => {
+const mapActionsToProps = dispatch =>{
 	return {
 		setTaskDone: task => dispatch(doneTask(task)),
-		setTaskRemove: task => dispatch(removeTask(task))
+		setTaskRemove: task => dispatch(removeTask(task)),
 	}
 };
 
-export default connect(mapStateToProps, mapActionsToProps)(TaskList);
+export default connect(mapStateToProps,mapActionsToProps)(TaskList);
