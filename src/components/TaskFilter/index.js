@@ -5,6 +5,8 @@ import Grid from "@material-ui/core/Grid/Grid";
 import Paper from "@material-ui/core/Paper/Paper";
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import {connect} from "react-redux";
+import {showAllTasks, showDoneTasks, showRemoveTasks} from "../../store/actions";
 
 const styles = theme => ({
 	root: {
@@ -26,6 +28,20 @@ class TaskFilter extends Component {
 	
 	handleChange = (event, value) => {
 		this.setState({ value });
+		
+		const {showAllTasksHandler, showDoneTasksHandler, showRemoveTasksHandler} = this.props;
+		
+		switch (event.target.innerText) {
+			case "ALL":
+				showAllTasksHandler();
+				break;
+			case "DONE":
+				showDoneTasksHandler();
+				break;
+			case "REMOVE":
+				showRemoveTasksHandler();
+				break;
+		}
 	};
 	render(){
 		const {classes} = this.props;
@@ -54,4 +70,11 @@ class TaskFilter extends Component {
 	
 }
 
-export default withStyles(styles)(TaskFilter);
+const mapStateToProps = (state) => ({...state});
+const mapActionsToProps = (dispatch) => ({
+	showAllTasksHandler: () => dispatch(showAllTasks()),
+	showDoneTasksHandler: () => dispatch(showDoneTasks()),
+	showRemoveTasksHandler: () => dispatch(showRemoveTasks())
+});
+
+export default withStyles(styles)(connect(mapStateToProps, mapActionsToProps)(TaskFilter));

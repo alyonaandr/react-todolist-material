@@ -1,4 +1,4 @@
-import {ADD_NEW_TASK, DONE_TASK, REMOVE_TASK} from "../index";
+import {ADD_NEW_TASK, DONE_TASK, REMOVE_TASK, SHOW_ALL_TASKS, SHOW_DONE_TASKS, SHOW_REMOVE_TASKS} from "../index";
 
 export const addNewTask = (task) => {
 	return {
@@ -18,5 +18,26 @@ export const removeTask = (task_id) => {
 	return {
 		type: REMOVE_TASK,
 		payload: task_id
+	}
+};
+
+export const showAllTasks = () => {
+	return {
+		type: SHOW_ALL_TASKS,
+		payload: "SHOW_ALL_TASKS"
+	}
+};
+
+export const showDoneTasks = () => {
+	return {
+		type: SHOW_DONE_TASKS,
+		payload: "SHOW_DONE_TASKS"
+	}
+};
+
+export const showRemoveTasks = () => {
+	return {
+		type: SHOW_REMOVE_TASKS,
+		payload: "SHOW_REMOVE_TASKS"
 	}
 };
